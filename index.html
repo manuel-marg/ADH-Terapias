@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 	<link rel="icon" type="image/png" href="images/ADH-Icono.png">
     
@@ -39,6 +42,117 @@
         .footer a, .footer a:hover {
             color: #999999;
         }
+
+        /* Radial gradient background class for email compatibility */
+        .radial-gradient-bg {
+            background: #0d3973; /* Fallback for older email clients */
+            background: -webkit-radial-gradient(center, circle, #2a5ba0 0%, #1e4d87 30%, #0d3973 60%, #041b3e 100%);
+            background: -moz-radial-gradient(center, circle, #2a5ba0 0%, #1e4d87 30%, #0d3973 60%, #041b3e 100%);
+            background: -o-radial-gradient(center, circle, #2a5ba0 0%, #1e4d87 30%, #0d3973 60%, #041b3e 100%);
+            background: -ms-radial-gradient(center, circle, #2a5ba0 0%, #1e4d87 30%, #0d3973 60%, #041b3e 100%);
+            background: radial-gradient(circle at center, #2a5ba0 0%, #1e4d87 30%, #0d3973 60%, #041b3e 100%);
+        }
+
+        /* Pulse Button Styles */
+        .pulse-container {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto 0;
+        }
+
+        .pulse-button span {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            color: #333;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            float: right;
+        }
+
+        .pulse-button span:before {
+            font-family: 'Font Awesome 6 Free';
+            content: "\f095";
+            font-weight: 900;
+            width: 15px;
+            height: 15px;
+            display: block;
+            margin: 13px 15px;
+            -webkit-animation: wiggle 2s infinite;
+            -moz-animation: wiggle 2s infinite;
+            animation: wiggle 2s infinite;
+        }
+
+        .pulse-button i {
+            font-size: 15px;
+            margin: 0 auto;
+            opacity: 0.5;
+        }
+
+        .pulse-button {
+            color: #333;
+            font-size: 30px;
+            font-weight: bold;
+            position: relative;
+            width: 340px;
+            padding: 10px 15px 6px 30px;
+            line-height: 25px;
+            text-align: left;
+            height: 80px;
+            border: none;
+            box-shadow: 0 0 0 0 rgba(255, 232, 160, 0.7);
+            border-radius: 40px;
+            background-color: #fed03d;
+            background-size: cover;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+            -moz-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+            -ms-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+            animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+
+        .pulse-button:hover {
+            -webkit-animation: none;
+            -moz-animation: none;
+            -ms-animation: none;
+            animation: none;
+        }
+
+        /* Pulse Animation */
+        @-webkit-keyframes pulse {
+            to { box-shadow: 0 0 0 25px rgba(255, 232, 160, 0); }
+        }
+        @-moz-keyframes pulse {
+            to { box-shadow: 0 0 0 25px rgba(255, 232, 160, 0); }
+        }
+        @-ms-keyframes pulse {
+            to { box-shadow: 0 0 0 25px rgba(255, 232, 160, 0); }
+        }
+        @keyframes pulse {
+            to { box-shadow: 0 0 0 25px rgba(255, 232, 160, 0); }
+        }
+
+        /* Wiggle Animation */
+        @-webkit-keyframes wiggle {
+            0% { -webkit-transform: rotate(15deg); }
+            50% { -webkit-transform: rotate(-15deg); }
+            100% { -webkit-transform: rotate(15deg); }
+        }
+        @-moz-keyframes wiggle {
+            0% { -moz-transform: rotate(15deg); }
+            50% { -moz-transform: rotate(-15deg); }
+            100% { -moz-transform: rotate(15deg); }
+        }
+        @keyframes wiggle {
+            0% { transform: rotate(15deg); }
+            50% { transform: rotate(-15deg); }
+            100% { transform: rotate(15deg); }
+        }
     </style>
 
     <!-- MESSAGE SUBJECT -->
@@ -56,8 +170,7 @@
 
 <!-- SECTION / BACKGROUND -->
 <!-- Set section background color -->
-<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; width: 100%;" class="background"><tr><td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;"
-        bgcolor="#1f419b">
+<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; width: 100%;" class="background"><tr><td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;" class="radial-gradient-bg">
 
 <!-- WRAPPER -->
 <!-- Set wrapper width (twice) -->
@@ -106,7 +219,7 @@
             padding-top: 5px;
             color: #FFFFFF;
             font-family: sans-serif;" class="subheader">
-                Psicologia · Psicopedagogia · Lenguaje · Ocupacional
+                Psicologia · Psicopedagogia · Terapia de Lenguaje · Terapia Ocupacional
         </td>
     </tr>
 
@@ -257,20 +370,22 @@
         </td>
     </tr>
 
-    <!-- BUTTON -->
-    <!-- Set button background color at TD, link/text color at A and TD, font family ("sans-serif" or "Georgia, serif") at TD. For verification codes add "letter-spacing: 5px;". Link format: http://domain.com/?utm_source={{Campaign-Source}}&utm_medium=email&utm_content={{Button-Name}}&utm_campaign={{Campaign-Name}} -->
+    <!-- ANIMATED PULSE BUTTON -->
     <tr>
         <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%;
             padding-top: 30px;
-            padding-bottom: 35px;" class="button"><a
-            href="https://github.com/konsav/email-templates/" target="_blank" style="text-decoration: none;">
-                <table border="0" cellpadding="0" cellspacing="0" align="center" style="min-width: 120px; border-collapse: collapse; border-spacing: 0; padding: 0;"><tr><td align="center" valign="middle" style="padding: 12px 24px; margin: 0; text-decoration: none; border-collapse: collapse; border-spacing: 0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px;"
-                        bgcolor="#1f419b"><a target="_blank" style="text-decoration: none;
-                        color: #FFFFFF; font-family: sans-serif; font-size: 20px; font-weight: 400; line-height: 120%;"
-                        href="tel:+582122836240">
-                            Llámanos al (212) 283 6240
-                        </a>
-            </td></tr></table></a>
+            padding-bottom: 35px;">
+            <div align="center" style="margin-top: 20px;">
+                <div class="pulse-container">
+                    <a href="tel:+582122836240" style="text-decoration: none;">
+                        <button class="pulse-button">
+                            (212) 283 6240<br>
+                            <i>PULSA AQUI PARA LLAMAR</i>
+                            <span></span>
+                        </button>
+                    </a>
+                </div>
+            </div>
         </td>
     </tr>
 
