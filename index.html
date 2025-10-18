@@ -4,8 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0;">
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- SweetAlert2 CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -450,53 +448,30 @@
 <!-- End of SECTION / BACKGROUND -->
 </td></tr></table>
 <script>
-    // Object to hold the pricing data for each service
-    const servicePrices = {
-        psicologia: {
-            title: 'Precios Psicología',
-            content: `
-                <p><strong>Diagnóstico:</strong> Ref. 80</p>
-                <p><strong>Terapia:</strong> Ref. 30</p>
-            `
-        },
-        psicopedagogia: {
-            title: 'Precios Psicopedagogía',
-            content: `
-                <p><strong>Evaluación:</strong> Ref. 60</p>
-                <p><strong>Terapia:</strong> Ref. 25</p>
-            `
-        },
-        lenguaje: {
-            title: 'Precios Terapia de Lenguaje',
-            content: `
-                <p><strong>Evaluación:</strong> Ref. 60</p>
-                <p><strong>Terapia:</strong> Ref. 25</p>
-            `
-        },
-        ocupacional: {
-            title: 'Precios Terapia Ocupacional',
-            content: `
-                <p><strong>Evaluación:</strong> Ref. 60</p>
-                <p><strong>Terapia:</strong> Ref. 25</p>
-            `
-        }
-    };
-
     /**
-     * Shows a SweetAlert popup with details for the selected service.
-     * @param {string} service The key for the service in the servicePrices object.
+     * Redirects to WhatsApp with a personalized message for the selected service.
+     * @param {string} service The key for the service.
      */
     function showDetails(service) {
-        const data = servicePrices[service];
-        if (data) {
-            Swal.fire({
-                title: data.title,
-                html: data.content,
-                icon: 'info',
-                confirmButtonText: 'Aceptar',
-                confirmButtonColor: '#1f419b'
-            });
-        }
+        // Map service keys to display names
+        const serviceNames = {
+            psicologia: 'Psicología',
+            psicopedagogia: 'Psicopedagogía',
+            lenguaje: 'Terapia de Lenguaje',
+            ocupacional: 'Terapia Ocupacional'
+        };
+        
+        // Get the service name or default to the service key
+        const serviceName = serviceNames[service] || service;
+        
+        // Create the WhatsApp message with the service name
+        const message = `Hola, estoy interesado en solicitar una cita para ${serviceName}.`;
+        
+        // Encode the message for URL
+        const encodedMessage = encodeURIComponent(message);
+        
+        // Redirect to WhatsApp with the message
+        window.open(`https://wa.me/584126785760?text=${encodedMessage}`, '_blank');
     }
 </script>
 
